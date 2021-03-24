@@ -7,7 +7,7 @@ pipeline{
   stages {
     stage("Build")  {
       steps  {
-        sh "docker run --privileged -v /var/run/docker.sock:/var/run/docker.sock",
+        sh "docker run --privileged -v /var/run/docker.sock:/var/run/docker.sock"
         sh "npm install"
       }
     }
