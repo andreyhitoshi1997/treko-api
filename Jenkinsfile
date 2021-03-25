@@ -1,7 +1,7 @@
 pipeline{
   agent {
     docker {
-      image "node"
+      image "node:8-alpine"
       args "--network=skynet"
     }  
   }
@@ -22,6 +22,12 @@ pipeline{
         always {
           junit "log/*.xml"
         }
+      }
+    }
+    stage("Production"){
+      steps {
+        input message: "Go to production? (Click 'Proceed' to continue"
+        sh "echo 'subindo em producao'"
       }
     }
   }
